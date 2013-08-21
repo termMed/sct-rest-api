@@ -1,0 +1,437 @@
+HOST: http://sct-rest-api.elasticbeanstalk.com/rest/snomed/
+
+--- SNOMED CT API v0.1 ---
+---
+Welcome to the SNOMED CT API documentation. All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
+---
+
+--
+SNOMED CT Terminology Resources
+The following is a section of resources related to the SNOMED CT Terminology components
+--
+Gets concept by ID
+GET /concepts/{id}
+< 200
+< Content-Type: application/json
+{
+   "id":138875005,
+   "description":"SNOMED CT Concept",
+   "active":true,
+   "defStatus":"Primitive"
+}
+
+Gets Concepts that are children of the Concept identified by the ID
+GET concepts?childrenOf=138875005
+< 200
+< Content-Type: application/json
+[
+   {
+      "id":123037004,
+      "description":"Body structure (body structure)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":404684003,
+      "description":"Clinical finding (finding)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":308916002,
+      "description":"Environment or geographical location (environment / location)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":272379006,
+      "description":"Event (event)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":363787002,
+      "description":"Observable entity (observable entity)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":410607006,
+      "description":"Organism (organism)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":373873005,
+      "description":"Pharmaceutical / biologic product (product)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":78621006,
+      "description":"Physical force (physical force)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":260787004,
+      "description":"Physical object (physical object)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":71388002,
+      "description":"Procedure (procedure)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":362981000,
+      "description":"Qualifier value (qualifier value)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":419891008,
+      "description":"Record artifact (record artifact)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":243796009,
+      "description":"Situation with explicit context (situation)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":900000000000441003,
+      "description":"SNOMED CT Model Component (metadata)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":48176007,
+      "description":"Social context (social concept)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":370115009,
+      "description":"Special concept (special concept)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":123038009,
+      "description":"Specimen (specimen)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":254291000,
+      "description":"Staging and scales (staging scale)",
+      "active":true,
+      "defStatus":null
+   },
+   {
+      "id":105590001,
+      "description":"Substance (substance)",
+      "active":true,
+      "defStatus":null
+   }
+]
+
+Gets the descriptions of the concept identified by the ID
+GET /concepts/138875005/descriptions
+< 200
+< Content-Type: application/json
+[
+   {
+      "descId":220308012,
+      "conceptId":null,
+      "term":"SNOMED CT has been created by combining SNOMED RT and a computer-based nomenclature and classification known as Read Codes Version 3, which was created on behalf of the U.K. Department of Health and is a Crown copyright.",
+      "type":"Synonym",
+      "active":true,
+      "ics":"Entire term case sensitive",
+      "langRefset":[
+         "GB English : Accept.",
+         "US English : Accept."
+      ]
+   },
+   {
+      "descId":220309016,
+      "conceptId":null,
+      "term":"SNOMED CT Concept",
+      "type":"Synonym",
+      "active":true,
+      "ics":"Entire term case sensitive",
+      "langRefset":[
+         "GB English : Pref.",
+         "US English : Pref."
+      ]
+   },
+   {
+      "descId":517382016,
+      "conceptId":null,
+      "term":"SNOMED CT Concept (SNOMED RT+CTV3)",
+      "type":"Fully specified name",
+      "active":true,
+      "ics":"Entire term case sensitive",
+      "langRefset":[
+         "GB English : Pref.",
+         "US English : Pref."
+      ]
+   },
+   {
+      "descId":2957222010,
+      "conceptId":null,
+      "term":"Â© 2002-2013 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CTÂ®, was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of the IHTSDO.",
+      "type":"Synonym",
+      "active":true,
+      "ics":"Only initial character case insensitive",
+      "langRefset":[
+         "GB English : Accept.",
+         "US English : Accept."
+      ]
+   },
+   {
+      "descId":2959952016,
+      "conceptId":null,
+      "term":"SNOMED Clinical Terms version: 20130731 [R] (July 2013 Release)",
+      "type":"Synonym",
+      "active":true,
+      "ics":"Entire term case sensitive",
+      "langRefset":[
+         "GB English : Accept.",
+         "US English : Accept."
+      ]
+   }
+]
+
+Gets the relationships of the concept identified by the ID
+GET /concepts/404684003/relationships
+< 200
+< Content-Type: application/json
+[
+   {
+      "type":"Is a",
+      "target":"SNOMED CT Concept",
+      "groupId":0,
+      "charType":"Stated relationship",
+      "active":true
+   },
+   {
+      "type":"Is a",
+      "target":"SNOMED CT Concept",
+      "groupId":0,
+      "charType":"Inferred relationship",
+      "active":true
+   }
+]
+
+Gets the refset-memberships of the concept identified by the ID
+GET /concepts/404684003/refset-memberships
+< 200
+< Content-Type: application/json
+[]
+
+Gets the descriptions that match the search phrase
+GET /descriptions?phrase=asthma
+< 200
+< Content-Type: application/json
+[
+   {
+      "descId":20108018,
+      "conceptId":11641008,
+      "term":"Millers' asthma",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":20109014,
+      "conceptId":11641008,
+      "term":"Mill-workers' asthma",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":422889016,
+      "conceptId":11641008,
+      "term":"Grain worker's asthma",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":678134019,
+      "conceptId":11641008,
+      "term":"Millers' asthma (disorder)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":20594016,
+      "conceptId":11944003,
+      "term":"Feather asthma",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":21390015,
+      "conceptId":12428000,
+      "term":"Intrinsic asthma without status asthmaticus",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":727859010,
+      "conceptId":12428000,
+      "term":"Intrinsic asthma without status asthmaticus (disorder)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":2162182018,
+      "conceptId":13151001,
+      "term":"Stripper's asthma",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":1762522018,
+      "conceptId":134380003,
+      "term":"Asthma Accident and Emergency attendance since last visit (regime/therapy)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":1775436017,
+      "conceptId":134380003,
+      "term":"Asthma Accident and Emergency attendance since last visit",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":216187019,
+      "conceptId":134381004,
+      "term":"Asthma treatment compliance satisfactory",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":513959014,
+      "conceptId":134381004,
+      "term":"Asthma treatment compliance satisfactory (procedure)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":216189016,
+      "conceptId":134383001,
+      "term":"Asthma treatment compliance unsatisfactory",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":513961017,
+      "conceptId":134383001,
+      "term":"Asthma treatment compliance unsatisfactory (procedure)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":1186276015,
+      "conceptId":134384007,
+      "term":"Asthma daytime symptoms (finding)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":216190013,
+      "conceptId":134384007,
+      "term":"Asthma daytime symptoms",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":2663871014,
+      "conceptId":135854001,
+      "term":"asthma causes night symptoms 1 to 2 times per month",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":514363018,
+      "conceptId":135854001,
+      "term":"Asthma causes night symptoms 1 to 2 times per month (procedure)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":216620015,
+      "conceptId":135855000,
+      "term":"Asthma never causes daytime symptoms",
+      "type":"900000000000013009",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   },
+   {
+      "descId":514364012,
+      "conceptId":135855000,
+      "term":"Asthma never causes daytime symptoms (procedure)",
+      "type":"900000000000003001",
+      "active":null,
+      "ics":null,
+      "langRefset":null
+   }
+]
+
+
+SAMPLE POST, saved as format reference
+POST /descriptions/add
+> Content-Type: application/json
+{ "product":"1AB23ORM", "quantity": 2 }
+< 201
+< Content-Type: application/json
+{ "status": "created", "url": "/shopping-cart/2" }
+
+--
+Section 2
+The following is a section of resources related to the SNOMED CT Terminology components
+--
